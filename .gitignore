@@ -1,0 +1,12 @@
+*.exe
+*.out
+*.o
+*.obj
+
+.vs/
+.vscode/
+Debug/
+Release/
+
+*.tmp
+*.log
