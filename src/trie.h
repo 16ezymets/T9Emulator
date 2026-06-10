@@ -10,11 +10,12 @@
 #include <vector>
 
 const int ALPHABET_SIZE = 26;
+const int NO_CHILD = -1;
 
 /// Узел префиксного дерева
 struct TrieNode
 {
-    std::vector<TrieNode*> children;  ///< Дочерние узлы (26 букв)
+    std::vector<int> children;        ///< Индексы дочерних узлов (-1 если нет)
     bool is_end;                      ///< Конец слова
     int freq;                         ///< Частота слова
 };
@@ -22,7 +23,7 @@ struct TrieNode
 /// Префиксное дерево: добавление слов, поиск по цифрам T9
 struct Trie
 {
-    TrieNode* root;
+    std::vector<TrieNode> nodes;
 };
 
 /**
@@ -30,12 +31,6 @@ struct Trie
  * @return Указатель на корень
  */
 Trie trie_create();
-
-/**
- * @brief Удалить дерево и освободить память
- * @param trie Дерево
- */
-void trie_destroy(Trie& trie);
 
 /**
  * @brief Добавить слово в дерево

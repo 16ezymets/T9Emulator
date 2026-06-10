@@ -12,39 +12,17 @@ static const char* DIGIT_TO_LETTERS[] = {
 Trie trie_create()
 {
     Trie trie;
-    trie.root = new TrieNode();
-    trie.root->children = std::vector<TrieNode*>(ALPHABET_SIZE, nullptr);
-    trie.root->is_end = false;
-    trie.root->freq = 0;
+    TrieNode root;
+    root.children = std::vector<int>(ALPHABET_SIZE, NO_CHILD);
+    root.is_end = false;
+    root.freq = 0;
+    trie.nodes.push_back(root);
     return trie;
-}
-
-static void delete_node(TrieNode* node)
-{
-    if (node == nullptr) return;
-
-    for (int i = 0; i < ALPHABET_SIZE; i++)
-    {
-        if (node->children[i] != nullptr)
-        {
-            delete_node(node->children[i]);
-        }
-    }
-
-    delete node;
-}
-
-void trie_destroy(Trie& trie)
-{
-    delete_node(trie.root);
-    trie.root = nullptr;
 }
 
 void trie_insert(Trie& trie, const std::string& word, int freq)
 {
-    if (trie.root == nullptr) return;
-
-    TrieNode* cur = trie.root;
+    int cur_idx = 0;
 
     for (size_t i = 0; i < word.length(); i++)
     {
@@ -52,52 +30,53 @@ void trie_insert(Trie& trie, const std::string& word, int freq)
         if (c >= 'A' && c <= 'Z') c = c - 'A' + 'a';
         if (c < 'a' || c > 'z') continue;
 
-        int idx = c - 'a';
+        int letter_idx = c - 'a';
 
-        if (cur->children[idx] == nullptr)
+        // Создание дочернего узла, если его нет
+        if (trie.nodes[cur_idx].children[letter_idx] == NO_CHILD)
         {
-            cur->children[idx] = new TrieNode();
-            cur->children[idx]->children = std::vector<TrieNode*>(ALPHABET_SIZE, nullptr);
-            cur->children[idx]->is_end = false;
-            cur->children[idx]->freq = 0;
+            TrieNode new_node;
+            new_node.children = std::vector<int>(ALPHABET_SIZE, NO_CHILD);
+            new_node.is_end = false;
+            new_node.freq = 0;
+            trie.nodes.push_back(new_node);
+            trie.nodes[cur_idx].children[letter_idx] = trie.nodes.size() - 1;
         }
 
-        cur = cur->children[idx];
+        cur_idx = trie.nodes[cur_idx].children[letter_idx];
     }
 
-    cur->is_end = true;
-    cur->freq = freq;
+    trie.nodes[cur_idx].is_end = true;
+    trie.nodes[cur_idx].freq = freq;
 }
 
-static void collect(TrieNode* node, const std::string& prefix,
+static void collect(Trie& trie, int node_idx, const std::string& prefix,
                     std::vector<std::pair<std::string, int>>& result)
 {
-    if (node == nullptr) return;
+    if (node_idx == NO_CHILD) return;
 
-    if (node->is_end)
-    {
-        result.push_back({prefix, node->freq});
-    }
+    if (trie.nodes[node_idx].is_end)
+        result.push_back({prefix, trie.nodes[node_idx].freq});
 
     for (int i = 0; i < ALPHABET_SIZE; i++)
     {
-        if (node->children[i] != nullptr)
+        int child = trie.nodes[node_idx].children[i];
+        if (child != NO_CHILD)
         {
             char letter = static_cast<char>('a' + i);
-            collect(node->children[i], prefix + letter, result);
+            collect(trie, child, prefix + letter, result);
         }
     }
 }
 
-static void traverse(const std::string& digits, size_t pos, TrieNode* node,
+static void traverse(Trie& trie, const std::string& digits, size_t pos, int node_idx,
                      const std::string& prefix,
                      std::vector<std::pair<std::string, int>>& result)
 {
-    if (node == nullptr) return;
-
+    if (node_idx == NO_CHILD) return;
     if (pos >= digits.length())
     {
-        collect(node, prefix, result);
+        collect(trie, node_idx, prefix, result);
         return;
     }
 
@@ -105,15 +84,12 @@ static void traverse(const std::string& digits, size_t pos, TrieNode* node,
     if (digit < '2' || digit > '9') return;
 
     const char* letters = DIGIT_TO_LETTERS[digit - '0'];
-    if (letters == nullptr) return;
-
     for (int i = 0; letters[i] != '\0'; i++)
     {
-        int idx = letters[i] - 'a';
-        if (idx >= 0 && idx < ALPHABET_SIZE && node->children[idx] != nullptr)
-        {
-            traverse(digits, pos + 1, node->children[idx], prefix + letters[i], result);
-        }
+        int letter_idx = letters[i] - 'a';
+        int child = trie.nodes[node_idx].children[letter_idx];
+        if (child != NO_CHILD)
+            traverse(trie, digits, pos + 1, child, prefix + letters[i], result);
     }
 }
 
@@ -126,30 +102,22 @@ static void sort_result(std::vector<std::pair<std::string, int>>& result)
         for (size_t j = i + 1; j < n; j++)
         {
             if (result[j].second > result[max_idx].second)
-            {
                 max_idx = j;
-            }
         }
         if (max_idx != i)
-        {
             std::swap(result[i], result[max_idx]);
-        }
     }
 }
 
 std::vector<std::pair<std::string, int>> trie_find(Trie& trie, const std::string& digits)
 {
     std::vector<std::pair<std::string, int>> result;
-
-    if (trie.root == nullptr) return result;
-    if (digits.empty()) return result;
+    if (digits.empty() || trie.nodes.empty()) return result;
 
     for (size_t i = 0; i < digits.length(); i++)
-    {
         if (digits[i] < '2' || digits[i] > '9') return result;
-    }
 
-    traverse(digits, 0, trie.root, "", result);
+    traverse(trie, digits, 0, 0, "", result);
     sort_result(result);
     return result;
 }

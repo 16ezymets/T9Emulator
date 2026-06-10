@@ -129,6 +129,5 @@ int main(int argc, char* argv[])
 
     std::cout << "\nИТОГОВЫЙ ТЕКСТ: " << eng.text << std::endl;
 
-    trie_destroy(trie);
     return 0;
 }

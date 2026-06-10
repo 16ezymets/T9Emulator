@@ -12,8 +12,6 @@ TEST_CASE("Добавление и поиск слова")
 
     CHECK(result.size() == 1);
     CHECK(result[0].first == "hello");
-
-    trie_destroy(trie);
 }
 
 TEST_CASE("Сортировка по частоте")
@@ -28,8 +26,6 @@ TEST_CASE("Сортировка по частоте")
 
     REQUIRE(result.size() >= 1);
     CHECK(result[0].first == "home");
-
-    trie_destroy(trie);
 }
 
 TEST_CASE("Engine: ввод и выбор слова")
@@ -49,6 +45,4 @@ TEST_CASE("Engine: ввод и выбор слова")
     CHECK(eng.cands.empty());
 
     CHECK_THROWS_AS(engine_commit(eng), std::runtime_error);
-
-    trie_destroy(trie);
 }
