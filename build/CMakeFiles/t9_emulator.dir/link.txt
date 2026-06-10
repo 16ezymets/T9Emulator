@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/t9_emulator.dir/src/main.cpp.o CMakeFiles/t9_emulator.dir/src/trie.cpp.o CMakeFiles/t9_emulator.dir/src/dictionary.cpp.o CMakeFiles/t9_emulator.dir/src/t9engine.cpp.o -o t9_emulator 

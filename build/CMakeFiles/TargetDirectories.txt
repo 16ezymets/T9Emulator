@@ -1,0 +1,8 @@
+/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles/t9_emulator.dir
+/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles/test.dir
+/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles/edit_cache.dir
+/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles/rebuild_cache.dir
+/home/aleksey/CPP_Projects/T9Emulator/build/tests/CMakeFiles/test_t9.dir
+/home/aleksey/CPP_Projects/T9Emulator/build/tests/CMakeFiles/test.dir
+/home/aleksey/CPP_Projects/T9Emulator/build/tests/CMakeFiles/edit_cache.dir
+/home/aleksey/CPP_Projects/T9Emulator/build/tests/CMakeFiles/rebuild_cache.dir

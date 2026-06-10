@@ -10,7 +10,7 @@ add_executable(t9_emulator
     src/main.cpp
     src/trie.cpp
     src/dictionary.cpp
-    src/t9_engine.cpp
+    src/t9engine.cpp
 )
 
 target_include_directories(t9_emulator PRIVATE src)

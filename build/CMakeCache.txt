@@ -213,9 +213,6 @@ T9_Emulator_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 T9_Emulator_SOURCE_DIR:STATIC=/home/aleksey/CPP_Projects/T9Emulator
 
-//The directory containing a CMake configuration file for doctest.
-doctest_DIR:PATH=doctest_DIR-NOTFOUND
-
 
 ########################
 # INTERNAL cache entries

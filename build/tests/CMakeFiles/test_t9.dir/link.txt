@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_t9.dir/test.cpp.o CMakeFiles/test_t9.dir/__/src/trie.cpp.o CMakeFiles/test_t9.dir/__/src/dictionary.cpp.o CMakeFiles/test_t9.dir/__/src/t9engine.cpp.o -o test_t9 

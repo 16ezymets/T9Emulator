@@ -3,8 +3,8 @@
  * @brief Движок эмулятора T9
  */
 
-#ifndef ENGINE_H
-#define ENGINE_H
+#ifndef T9ENGINE_H
+#define T9ENGINE_H
 
 #include <string>
 #include <vector>
