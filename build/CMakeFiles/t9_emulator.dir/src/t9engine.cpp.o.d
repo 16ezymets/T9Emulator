@@ -2,6 +2,7 @@ CMakeFiles/t9_emulator.dir/src/t9engine.cpp.o: \
  /home/aleksey/CPP_Projects/T9Emulator/src/t9engine.cpp \
  /usr/include/stdc-predef.h \
  /home/aleksey/CPP_Projects/T9Emulator/src/t9engine.h \
+ /home/aleksey/CPP_Projects/T9Emulator/src/trie.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -119,9 +120,7 @@ CMakeFiles/t9_emulator.dir/src/t9engine.cpp.o: \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc \
- /home/aleksey/CPP_Projects/T9Emulator/src/trie.h \
- /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
- /usr/include/c++/13/bits/exception_ptr.h \
+ /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/stdexcept \
+ /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h

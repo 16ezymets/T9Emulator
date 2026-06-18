@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/aleksey/CPP_Projects/T9Emulator/tests/../src
+CXX_INCLUDES = -I/home/aleksey/CPP_Projects/T9Emulator/tests/../src -I/home/aleksey/CPP_Projects/T9Emulator/build/_deps/doctest-src
 
 CXX_FLAGS = -std=gnu++17
 

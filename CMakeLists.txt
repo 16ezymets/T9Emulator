@@ -13,6 +13,14 @@ add_executable(t9_emulator
     src/t9engine.cpp
 )
 
+include(FetchContent)
+FetchContent_Declare(
+    doctest
+    GIT_REPOSITORY https://github.com/doctest/doctest.git
+    GIT_TAG v2.4.11
+)
+FetchContent_MakeAvailable(doctest)
+
 target_include_directories(t9_emulator PRIVATE src)
 
 add_subdirectory(tests)

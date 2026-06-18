@@ -1,7 +1,7 @@
 tests/CMakeFiles/test_t9.dir/test.cpp.o: \
  /home/aleksey/CPP_Projects/T9Emulator/tests/test.cpp \
  /usr/include/stdc-predef.h \
- /home/aleksey/CPP_Projects/T9Emulator/tests/doctest.h \
+ /home/aleksey/CPP_Projects/T9Emulator/build/_deps/doctest-src/doctest/doctest.h \
  /usr/include/c++/13/ctime \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -260,6 +260,6 @@ tests/CMakeFiles/test_t9.dir/test.cpp.o: \
  /usr/include/c++/13/cfloat \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
  /usr/include/x86_64-linux-gnu/sys/time.h \
- /home/aleksey/CPP_Projects/T9Emulator/tests/../src/trie.h \
  /home/aleksey/CPP_Projects/T9Emulator/tests/../src/t9engine.h \
+ /home/aleksey/CPP_Projects/T9Emulator/tests/../src/trie.h \
  /home/aleksey/CPP_Projects/T9Emulator/tests/../src/trie.h

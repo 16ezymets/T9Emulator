@@ -6,11 +6,11 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
-#include <string>
 #include "trie.h"
+#include <string>
 
-void dict_load_file(Trie& trie, const std::string& filename);
+void dict_load_file(Trie &trie, const std::string &filename);
 
-void dict_load_builtin(Trie& trie);
+void dict_load_builtin(Trie &trie);
 
 #endif

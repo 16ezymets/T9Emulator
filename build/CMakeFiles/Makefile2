@@ -64,17 +64,35 @@ CMAKE_BINARY_DIR = /home/aleksey/CPP_Projects/T9Emulator/build
 
 # The main recursive "all" target.
 all: CMakeFiles/t9_emulator.dir/all
+all: _deps/doctest-build/all
 all: tests/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
+preinstall: _deps/doctest-build/preinstall
 preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/t9_emulator.dir/clean
+clean: _deps/doctest-build/clean
 clean: tests/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory _deps/doctest-build
+
+# Recursive "all" directory target.
+_deps/doctest-build/all:
+.PHONY : _deps/doctest-build/all
+
+# Recursive "preinstall" directory target.
+_deps/doctest-build/preinstall:
+.PHONY : _deps/doctest-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/doctest-build/clean: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/clean
+.PHONY : _deps/doctest-build/clean
 
 #=============================================================================
 # Directory level rules for directory tests
@@ -98,7 +116,7 @@ tests/clean: tests/CMakeFiles/test_t9.dir/clean
 CMakeFiles/t9_emulator.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/t9_emulator.dir/build.make CMakeFiles/t9_emulator.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/t9_emulator.dir/build.make CMakeFiles/t9_emulator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target t9_emulator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target t9_emulator"
 .PHONY : CMakeFiles/t9_emulator.dir/all
 
 # Build rule for subdir invocation for target.
@@ -118,13 +136,39 @@ CMakeFiles/t9_emulator.dir/clean:
 .PHONY : CMakeFiles/t9_emulator.dir/clean
 
 #=============================================================================
+# Target rules for target _deps/doctest-build/CMakeFiles/doctest_with_main.dir
+
+# All Build rule for target.
+_deps/doctest-build/CMakeFiles/doctest_with_main.dir/all:
+	$(MAKE) $(MAKESILENT) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles --progress-num=1,2 "Built target doctest_with_main"
+.PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles 0
+.PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule
+
+# Convenience name for target.
+doctest_with_main: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/rule
+.PHONY : doctest_with_main
+
+# clean rule for target.
+_deps/doctest-build/CMakeFiles/doctest_with_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/clean
+.PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/clean
+
+#=============================================================================
 # Target rules for target tests/CMakeFiles/test_t9.dir
 
 # All Build rule for target.
 tests/CMakeFiles/test_t9.dir/all:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_t9.dir/build.make tests/CMakeFiles/test_t9.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_t9.dir/build.make tests/CMakeFiles/test_t9.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles --progress-num=6,7,8,9,10 "Built target test_t9"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/aleksey/CPP_Projects/T9Emulator/build/CMakeFiles --progress-num=8,9,10,11,12 "Built target test_t9"
 .PHONY : tests/CMakeFiles/test_t9.dir/all
 
 # Build rule for subdir invocation for target.

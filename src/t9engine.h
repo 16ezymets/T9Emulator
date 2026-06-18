@@ -6,17 +6,16 @@
 #ifndef T9ENGINE_H
 #define T9ENGINE_H
 
+#include "trie.h"
 #include <string>
 #include <vector>
-#include "trie.h"
 
-struct Engine
-{
-    Trie* trie;                                        ///< Дерево словаря
-    std::string digits;                                ///< Введённые цифры
-    std::vector<std::pair<std::string, int>> cands;    ///< Кандидаты
-    int selected;                                      ///< Индекс выбранного
-    std::string text;                                  ///< Итоговый текст
+struct Engine {
+  Trie *trie;         ///< Дерево словаря
+  std::string digits; ///< Введённые цифры
+  std::vector<std::pair<std::string, int>> cands; ///< Кандидаты
+  int selected;     ///< Индекс выбранного
+  std::string text; ///< Итоговый текст
 };
 
 /**
@@ -24,24 +23,24 @@ struct Engine
  * @param trie Указатель на дерево
  * @return Инициализированный движок
  */
-Engine engine_create(Trie* trie);
+Engine engine_create(Trie *trie);
 
 /// Добавить цифру
-void engine_add_digit(Engine& eng, char digit);
+void engine_add_digit(Engine &eng, char digit);
 
 /// Удалить последнюю цифру
-void engine_backspace(Engine& eng);
+void engine_backspace(Engine &eng);
 
 /// Выбрать предыдущего кандидата
-void engine_prev(Engine& eng);
+void engine_prev(Engine &eng);
 
 /// Выбрать следующего кандидата
-void engine_next(Engine& eng);
+void engine_next(Engine &eng);
 
 /// Закрепить выбранное слово
-void engine_commit(Engine& eng);
+void engine_commit(Engine &eng);
 
 /// Сбросить текущий ввод
-void engine_reset(Engine& eng);
+void engine_reset(Engine &eng);
 
 #endif
