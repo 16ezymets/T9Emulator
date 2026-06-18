@@ -10,12 +10,18 @@
 #include <string>
 #include <vector>
 
-struct Engine {
-  Trie *trie;         ///< Дерево словаря
-  std::string digits; ///< Введённые цифры
-  std::vector<std::pair<std::string, int>> cands; ///< Кандидаты
-  int selected;     ///< Индекс выбранного
-  std::string text; ///< Итоговый текст
+/**
+ * @brief Состояние эмулятора T9
+ * 
+ * Хранит дерево словаря, текущий ввод, список кандидатов и итоговый текст.
+ */
+struct Engine
+{
+    Trie* trie;                                        
+    std::string digits;                                
+    std::vector<std::pair<std::string, int>> cands;    
+    int selected;                                      
+    std::string text;                                  
 };
 
 /**
